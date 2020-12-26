@@ -12,29 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490049772d224ef4d8f063e553527565, type: 3}
   m_Name: AliceData
   m_EditorClassIdentifier: 
-  HP: 100
-  MP: 0
-  speed: 0
-  attack: 0
-  cd: 0
+  HP: 300
+  MP: 200
+  speed: 1.2
+  attack: 30
+  cd: 1
   skills:
-  - name: 
-    attack: 0
-    cost: 0
-    image: {fileID: 0}
-    cd: 0
-  - name: 
-    attack: 0
-    cost: 0
-    image: {fileID: 0}
-    cd: 0
-  - name: 
-    attack: 0
-    cost: 0
-    image: {fileID: 0}
-    cd: 0
-  - name: 
-    attack: 0
-    cost: 0
-    image: {fileID: 0}
-    cd: 0
+  - name: "\u6211\u8981\u5403\u8089"
+    attack: 200
+    cost: 20
+    image: {fileID: 21300000, guid: 016bf0b062b9d0147a0afc2eb473544f, type: 3}
+    cd: 9
+  - name: "\u7A81\u523A"
+    attack: 150
+    cost: 10
+    image: {fileID: 21300000, guid: fdb18b7a9b83fb945ae69a4682013a62, type: 3}
+    cd: 2
+  - name: "\u5708\u5708\u53C9\u53C9"
+    attack: 300
+    cost: 30
+    image: {fileID: 21300000, guid: b7813ee319c49034293125469a1bdbfb, type: 3}
+    cd: 12
+  - name: "\u5403\u725B\u6392\u7528\u5200\u53C9"
+    attack: 800
+    cost: 50
+    image: {fileID: 21300000, guid: 4c5cac6d3be53f9468f1d8fcc6eb89d5, type: 3}
+    cd: 30
