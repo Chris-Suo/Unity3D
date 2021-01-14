@@ -7,15 +7,18 @@ public class HeroBase : MonoBehaviour
 
     private Animator ani;
 
-    private float[] skillTimer = new float[4];
-    private bool[] isSkill = new bool[4];
+    protected float[] skillTimer = new float[4];
+    protected bool[] isSkill = new bool[4];
+
+    private Rigidbody rig;
 
     protected virtual void Awake()
     {
         ani = GetComponent<Animator>();
+        rig = GetComponent<Rigidbody>();
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         TimerControl();
     }
@@ -38,9 +41,13 @@ public class HeroBase : MonoBehaviour
 
     }
 
-    public void Move()
+    public void Move(Transform target)
     {
+        Vector3 pos = rig.position;
 
+        rig.MovePosition(target.position);
+        transform.LookAt(target);
+        ani.SetBool("isRunning", pos != rig.position);
     }
 
     public void Skill_1()
