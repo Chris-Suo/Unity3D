@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44558454, g: 0.7189462, b: 0.730465, a: 1}
+  m_IndirectSpecularColor: {r: 0.44558412, g: 0.7189464, b: 0.7304636, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5874,7 +5874,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1586832995}
   m_LocalRotation: {x: 0.43758664, y: 0, z: 0, w: 0.8991763}
-  m_LocalPosition: {x: 0, y: 20.6, z: -10.6}
+  m_LocalPosition: {x: 0, y: 20.6, z: -8.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 28818168}
@@ -7466,6 +7466,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alice
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 50a0208afad970f42b91e82ff62fab00, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 50a0208afad970f42b91e82ff62fab00, type: 3}
       propertyPath: m_LocalPosition.x
       value: 82.8
@@ -7535,7 +7539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hero: {fileID: 11400000, guid: 794a6790c3fd6fb4e90922daf1f211de, type: 2}
-  moveDis: 2
+  moveDis: 0.5
 --- !u!136 &2017660981
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7583,8 +7587,9 @@ GameObject:
   - component: {fileID: 2038135113}
   - component: {fileID: 2038135112}
   - component: {fileID: 2038135111}
+  - component: {fileID: 2038135114}
   m_Layer: 0
-  m_Name: Roof_enemy
+  m_Name: Tower_enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7651,6 +7656,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: -317.454, z: 0}
+--- !u!114 &2038135114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038135110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 116647c4b2d7b0b4286a38b4f9291f1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 15
+  attackPower: 0
+  bullet: {fileID: 6544102622739197083, guid: 54728229b8ab2a440983e5cf1f2585ec, type: 3}
+  speed: 0
+  layer: 8
 --- !u!1 &2096501522
 GameObject:
   m_ObjectHideFlags: 0
@@ -7936,7 +7958,7 @@ GameObject:
   - component: {fileID: 6333888255780833963}
   - component: {fileID: 5115972803664645798}
   m_Layer: 0
-  m_Name: Roof
+  m_Name: Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
