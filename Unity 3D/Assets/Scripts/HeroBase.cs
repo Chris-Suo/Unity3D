@@ -18,6 +18,12 @@ public class HeroBase : MonoBehaviour
         rig = GetComponent<Rigidbody>();
     }
 
+
+    public void Damage(float damage)
+    {
+        hero.HP -= damage;
+    }
+
     protected virtual void Update()
     {
         TimerControl();
