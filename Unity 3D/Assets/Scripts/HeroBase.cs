@@ -96,7 +96,7 @@ public class HeroBase : MonoBehaviour
 
     }
 
-    public void Move(Transform target)
+    protected virtual void Move(Transform target)
     {
         Vector3 pos = rig.position;
 
