@@ -13,9 +13,10 @@ public class HeroBase : MonoBehaviour
     protected bool[] isSkill = new bool[4];
     protected Animator ani;
     protected Transform canvasHP;
+    protected int timer;
+    protected float hp;
 
     private Rigidbody rig;
-    private float hp;
     private float MAX_HP;
     private Text textHP;
     private Image imgHP;
@@ -37,7 +38,7 @@ public class HeroBase : MonoBehaviour
         MAX_HP = hp;
     }
 
-    public void Damage(float damage)
+    public virtual void Damage(float damage)
     {
         hp -= damage;
         textHP.text = hp.ToString();
@@ -49,7 +50,7 @@ public class HeroBase : MonoBehaviour
         }
     }
 
-    public void Dead()
+    protected void Dead(bool needRestart = true)
     {
         gameObject.layer = 0;
         textHP.text = "0";
@@ -57,7 +58,14 @@ public class HeroBase : MonoBehaviour
         enabled = false;
         canvasHP.eulerAngles = new Vector3(0, 90, 0);
 
-        Invoke("Restart", restartTime);
+        if (needRestart)
+        {
+            Invoke("Restart", restartTime);
+        }
+        else
+        {
+            Destroy(gameObject, 2f);
+        }
     }
 
     private void Restart()

@@ -16,5 +16,5 @@ MonoBehaviour:
   MP: 0
   speed: 1
   attack: 10
-  cd: 0
+  cd: 15
   skills: []

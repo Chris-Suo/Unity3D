@@ -43,6 +43,31 @@ public class Soldier : HeroBase
         agent.SetDestination(this.target.position);
         canvasHP.eulerAngles = new Vector3(0, 90, 0);
         ani.SetBool("isRunning", agent.remainingDistance > agent.stoppingDistance);
+        if (agent.remainingDistance <= agent.stoppingDistance)
+        {
+            Attack();
+        }
+    }
 
+    private void Attack()
+    {
+        if (timer >= hero.cd)
+        {
+            ani.SetTrigger("attack");
+            timer = 0;
+        }
+        else
+        {
+            timer++;
+        }
+    }
+
+    public override void Damage(float damage)
+    {
+        base.Damage(damage);
+        if (hp <= 0)
+        {
+            Dead(false);
+        }
     }
 }
