@@ -5,22 +5,20 @@ public class HeroBase : MonoBehaviour
 {
     [Header("Hero Data")]
     public HeroData hero;
+    public int layer;
+    public Transform restartPont;
 
-    private Animator ani;
 
     protected float[] skillTimer = new float[4];
     protected bool[] isSkill = new bool[4];
+    protected Animator ani;
+    protected Transform canvasHP;
 
     private Rigidbody rig;
     private float hp;
     private float MAX_HP;
-
-    private Transform canvasHP;
     private Text textHP;
     private Image imgHP;
-    public int layer;
-
-    public Transform restartPont;
     private float restartTime = 3;
 
     protected virtual void Awake()
