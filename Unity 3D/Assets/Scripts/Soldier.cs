@@ -7,15 +7,21 @@ public class Soldier : HeroBase
     public string targetName;
     public float stopDis = 3;
     public float attackRange = 20;
+    public Vector3 attackOffset;
+    public float attackLength = 3;
+
 
     public int enemyLayer;
-
+    private Transform castle;
     private Transform target;
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = new Color(0, 0, 1, 0.5f);
         Gizmos.DrawSphere(transform.position, attackRange);
+
+        Gizmos.color = new Color(1, 1, 0);
+        Gizmos.DrawRay(transform.position + attackOffset, transform.forward * attackLength);
     }
 
     protected override void Awake()
@@ -24,7 +30,8 @@ public class Soldier : HeroBase
         agent = GetComponent<NavMeshAgent>();
         agent.speed = hero.speed;
         agent.stoppingDistance = stopDis;
-        target = GameObject.Find(targetName).transform;
+        castle = GameObject.Find(targetName).transform;
+        target = castle;
     }
     protected override void Update()
     {
@@ -38,6 +45,10 @@ public class Soldier : HeroBase
         if (hit.Length > 0)
         {
             this.target = hit[0].transform;
+        }
+        else
+        {
+            this.target = castle;
         }
 
         agent.SetDestination(this.target.position);
@@ -55,6 +66,13 @@ public class Soldier : HeroBase
         {
             ani.SetTrigger("attack");
             timer = 0;
+
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position + attackOffset, transform.forward, out hit, attackLength, 1 << enemyLayer))
+            {
+                if (hit.collider.GetComponent<Tower>()) hit.collider.GetComponent<Tower>().Damage(hero.attack);
+                if (hit.collider.GetComponent<Soldier>()) hit.collider.GetComponent<Soldier>().Damage(hero.attack);
+            }
         }
         else
         {
@@ -64,7 +82,10 @@ public class Soldier : HeroBase
 
     public override void Damage(float damage)
     {
-        base.Damage(damage);
+        hp -= damage;
+        textHP.text = hp.ToString();
+        imgHP.fillAmount = hp / MAX_HP;
+
         if (hp <= 0)
         {
             Dead(false);

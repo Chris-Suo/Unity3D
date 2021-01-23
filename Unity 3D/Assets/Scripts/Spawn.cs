@@ -21,8 +21,6 @@ public class Spawn : MonoBehaviour
         {
             currentCount = 0;
         }
-
-
     }
 
     private void Start()

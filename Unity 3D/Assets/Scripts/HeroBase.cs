@@ -15,11 +15,11 @@ public class HeroBase : MonoBehaviour
     protected Transform canvasHP;
     protected int timer;
     protected float hp;
+    protected float MAX_HP;
+    protected Text textHP;
+    protected Image imgHP;
 
     private Rigidbody rig;
-    private float MAX_HP;
-    private Text textHP;
-    private Image imgHP;
     private float restartTime = 3;
 
     protected virtual void Awake()
@@ -30,6 +30,7 @@ public class HeroBase : MonoBehaviour
         textHP = canvasHP.Find("BloodValue").GetComponent<Text>();
         textHP.text = hero.HP.ToString();
         imgHP = canvasHP.Find("bloodValue").GetComponent<Image>();
+        imgHP.fillAmount = 1;
     }
 
     private void Start()

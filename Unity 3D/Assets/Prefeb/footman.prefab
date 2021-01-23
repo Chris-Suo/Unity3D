@@ -911,7 +911,12 @@ MonoBehaviour:
   layer: 8
   restartPont: {fileID: 0}
   agent: {fileID: 0}
-  targetName: castle_enemy
+  targetName: CastlePoint
+  stopDis: 5.04
+  attackRange: 20
+  attackOffset: {x: 0, y: 0.75, z: 0}
+  attackLength: 1.3
+  enemyLayer: 9
 --- !u!1 &2022785824243846724
 GameObject:
   m_ObjectHideFlags: 0
